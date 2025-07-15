@@ -1,8 +1,8 @@
-function Welcome() {
+function Welcome(props) {
   return (
     <div>
-      <h2>Welcome, Ahmad!</h2>
-      <p>This is your first custom component. 🎉</p>
+      <h2>Welcome, {props.name}!</h2>
+      <p>{props.message}</p>
     </div>
   );
 }

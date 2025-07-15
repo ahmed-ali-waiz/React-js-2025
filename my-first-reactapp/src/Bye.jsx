@@ -1,8 +1,8 @@
-function Bye(){
+function Bye(props){
     return (
         <div>
-            <h1>Good Bye Ahmad</h1>
-            <p>Its not done yet</p>
+            <h1>Bye,{props.name}</h1>
+            <p>{props.message}</p>
         </div>
     );
 
