@@ -1,5 +1,6 @@
 import Welcome from './welcome';
 import Bye from './Bye';
+import Greet from './Components/Greet'; 
 
 function App() {
   return (
@@ -8,7 +9,10 @@ function App() {
       <Welcome name = "Ahmad" message= "You are doing great with react" />
       <Welcome name = "Ali" message= "This is your first custom component. 🎉" />
       <Bye name = "Waiz" message = "I am Ahmad Ali waiz" />
+
+       <Greet />
     </div>
+   
   );
 }
 
