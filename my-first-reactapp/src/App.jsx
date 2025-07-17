@@ -11,7 +11,7 @@ function App() {
       <Welcome name = "Ali" message= "This is your first custom component. 🎉" />
       <Bye name = "Waiz" message = "I am Ahmad Ali waiz" />
 
-       <Greet name = "Ali" age = "21" />
+       <Greet name = "Ali" age = "21" city = "sahiwal" uni = "Comsats" />
        <Hellow name = "Ahmad Ali" />
        <Hellow name = "ALi Waiz" />
        <Hellow name = "Waiz" />
