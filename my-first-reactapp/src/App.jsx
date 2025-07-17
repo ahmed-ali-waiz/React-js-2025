@@ -1,6 +1,7 @@
 import Welcome from './welcome';
 import Bye from './Bye';
 import Greet from './Components/Greet'; 
+import Hellow from './Props/Hello';
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
       <Welcome name = "Ali" message= "This is your first custom component. 🎉" />
       <Bye name = "Waiz" message = "I am Ahmad Ali waiz" />
 
-       <Greet />
+       <Greet name = "Ali" age = "21" />
+       <Hellow name = "Ahmad Ali" />
+       <Hellow name = "ALi Waiz" />
+       <Hellow name = "Waiz" />
     </div>
    
   );
