@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 
 function App() {
   const [length, setLength] = useState(8)
@@ -20,11 +20,22 @@ function App() {
     for (let i = 1; i <= length; i++) {
 
       let char = Math.floor(Math.random() * str.length + 1)
-      pass = str.charAt(char)
+      pass += str.charAt(char)
     }
     setpassword(pass)
 
   }, [length, numberallowed, charallowed, setpassword])
+
+  const CopyClipboard = useCallback(()=>{
+    passwordref.current?.select
+    window.navigator.clipboard.writeText(password)
+  },[password])
+
+  useEffect(()=>{
+    passwordGenerator()
+  },[length,numberallowed,charallowed,passwordGenerator])
+
+  const passwordref = useRef(null);
 
   return (
     <>
@@ -40,8 +51,11 @@ function App() {
             className="outline-none w-full py-1 px-3  bg-blue-50"
             placeholder="Password"
             readOnly
+            ref = {passwordref}
           />
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-sm shadow-md transition-all duration-300 hover:scale-105"
+          <button
+          onClick={CopyClipboard}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-sm shadow-md transition-all duration-300 hover:scale-105"
           >
             Copy
           </button>
@@ -63,7 +77,7 @@ function App() {
           <div className='flex item-center gap-x-1'>
             <input
               type="checkbox"
-              defaultChecked={numberallowed}
+              checked={numberallowed}
               onChange={() => {
                 setnumberallowed((prev) => !prev);
               }}
@@ -73,9 +87,9 @@ function App() {
           <div className='flex item-center gap-x-1'>
             <input 
             type="checkbox" 
-            defaultChecked = {charallowed}
+            hecked = {charallowed}
             onChange={()=>{
-              charallowed((prev)=>!prev)
+              setcharallowed((prev)=>!prev)
             }}
              />
              <label htmlFor="">Characters</label>
